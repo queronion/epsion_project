@@ -1,0 +1,35 @@
+# This file contains the schema for the dim_subcategories model, which is a dimension table that contains subcategories of products.
+# It includes attributes used for product categorization, such as subcategory key, subcategory name, and category key.
+# The model is built from the raw data in the subcategories table and includes additional transformations.
+# Some generic tests are applied to ensure data quality, such as not null and unique constraints.
+# The dim_subcategories model is used in various marts and reports to facilitate product categorization and analysis.
+
+version: 2
+
+models:
+  - name: dim_subcategories
+    description: "This dimension table contains subcategories of products, and links each subcategory to a broader product category."
+
+    columns:
+      - name: SUBCATEGORY_KEY
+        description: "Primary key for the subcategory dimension table."
+        tests:
+          - not_null:
+              severity: error # If the column has nulls, it will be flagged as an error
+          - unique:
+              severity: error # If the column has duplicates, it will be flagged as an error
+
+      - name: SUBCATEGORY_NAME
+        description: "The name of the subcategory, e.g., 'Touring Bikes', 'Handlebars', or 'Cranksets'."
+        tests:
+          - not_null:
+              severity: warn # If the column has nulls, it will be flagged as a warning
+
+      - name: CATEGORY_KEY
+        description: "Foreign key referencing the product category this subcategory belongs to."
+        tests:
+          - not_null:
+              severity: warn # If the column has nulls, it will be flagged as a warning
+          - relationships:  # Ensure that CATEGORY_KEY is a foreign key and connects the subcategories table to the categories table
+              to: ref('dim_product_categories')
+              field: CATEGORY_KEY

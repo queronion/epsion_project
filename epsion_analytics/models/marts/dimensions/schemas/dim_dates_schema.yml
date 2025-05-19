@@ -1,0 +1,74 @@
+# This file contqains the schema for the dim_dates model, which is a rolling-play dimension table that contains one row for each calendar date.
+# It includes attributes used for time-based reporting, such as year, quarter, month, day, and weekday/weekend indicators.
+# The model is built from the raw data in the dates table and includes additional transformations to create a comprehensive date dimension.
+# Some generic tests are applied to ensure data quality, such as not null and unique constraints.
+# The dim_dates model is used in various marts and reports to facilitate time-based analysis and reporting.
+
+version: 2
+
+models:
+  - name: dim_dates
+    description: "This dimension table contains one row for each calendar date and includes attributes used for time-based reporting, such as year, quarter, month, day, and weekday/weekend indicators."
+
+    columns:
+      - name: DATE
+        description: "The actual calendar date (e.g., '2024-12-31')."
+        tests:
+          - not_null:
+              severity: error # If the column has nulls, it will be flagged as an error
+          - unique:
+              severity: error # If the column has duplicates, it will be flagged as an error
+
+      - name: YEAR
+        description: "The four-digit year (e.g., 2025)."
+        tests:
+          - not_null:
+              severity: error # If the column has nulls, it will be flagged as an error
+
+      - name: QUARTER
+        description: "The quarter of the year (1 to 4)."
+        tests:
+          - not_null:
+              severity: error # If the column has nulls, it will be flagged as an error
+
+      - name: MONTH
+        description: "The numeric month of the year (1 to 12)."
+        tests:
+          - not_null:
+              severity: error # If the column has nulls, it will be flagged as an error
+
+      - name: MONTH_NAME
+        description: "The short name of the month (e.g., 'Jan')."
+        tests:
+          - not_null:
+              severity: error # If the column has nulls, it will be flagged as an error
+
+      - name: YEAR_MONTH
+        description: "A string or numeric representation combining year and month (e.g., '2025-01')."
+        tests:
+          - not_null:
+              severity: error # If the column has nulls, it will be flagged as an error
+
+      - name: DAY
+        description: "The numeric day of the month (1 to 31)."
+        tests:
+          - not_null:
+              severity: error # If the column has nulls, it will be flagged as an error
+
+      - name: DAY_OF_WEEK
+        description: "The day of the week as a number (0 = Sunday, 6 = Saturday)."
+        tests:
+          - not_null:
+              severity: error # If the column has nulls, it will be flagged as an error
+
+      - name: DAY_NAME
+        description: "The name of the day of the week (e.g., 'Monday')."
+        tests:
+          - not_null:
+              severity: error # If the column has nulls, it will be flagged as an error
+
+      - name: IS_WEEKEND
+        description: "flag indicating if the date falls on a weekend (Yes/No)."
+        tests:
+          - not_null:
+              severity: error # If the column has nulls, it will be flagged as an error

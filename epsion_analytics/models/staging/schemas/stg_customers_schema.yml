@@ -1,0 +1,78 @@
+# This file contains the schema definition for the staging model of customer data.
+# It is used to define the structure, descriptions, and tests for the columns in the staging model.
+
+version: 2
+
+models:
+  - name: stg_customers
+    description: >
+      Staging model for raw customer data extracted from the source system. This table serves as an intermediate
+      layer that applies light cleaning and standardization, preparing the data for transformation into the
+      business-friendly dimensional model.
+
+    columns:
+      - name: _AIRBYTE_RAW_ID
+        description: "Internal Airbyte raw ID for tracking the extracted row from the source."
+      - name: _AIRBYTE_EXTRACTED_AT
+        description: "Timestamp when the record was extracted from the source system by Airbyte."
+      - name: _AIRBYTE_META
+        description: "Metadata captured by Airbyte during extraction."
+      - name: _AIRBYTE_GENERATION_ID
+        description: "Airbyte generation ID indicating the extraction batch."
+        
+      - name: CUSTOMER_KEY
+        description: "Primary identifier for each customer in the source system."
+        tests:
+          - unique:
+              severity: warn # If the customer key is duplicated, it will be flagged as a warning
+          - not_null:
+              severity: warn # If the customer key is null, it will be flagged as a warning
+
+      - name: PREFIX
+        description: "Customer name prefix (e.g., Mr., Mrs., Dr.) as captured from the source system."
+
+      - name: FIRST_NAME
+        description: "Customer's first name from the raw data source."
+        tests:
+          - not_null
+
+      - name: LAST_NAME
+        description: "Customer's last name from the raw data source."
+        tests:
+          - not_null
+
+      - name: GENDER
+        description: "Customer gender information captured from the source system."
+
+      - name: BIRTH_DATE
+        description: "Customer's birth date as recorded in the source system."
+        tests:
+          - not_null
+
+      - name: EMAIL_ADDRESS
+        description: "Email address of the customer from the source."
+        tests:
+          - unique
+          - not_null
+
+      - name: ANNUAL_INCOME
+        description: "Reported annual income of the customer as captured by the source system."
+        tests:
+          - not_null
+
+      - name: MARITAL_STATUS
+        description: "Marital status field as collected from the customer or external system."
+
+      - name: TOTAL_CHILDREN
+        description: "Number of children reported or inferred for the customer."
+        tests:
+          - not_null
+
+      - name: IS_HOMEOWNER
+        description: "Indicates if the customer owns a home (raw binary flag)."
+
+      - name: EDUCATION_LEVEL
+        description: "Educational attainment level for the customer from the source."
+
+      - name: OCCUPATION
+        description: "Raw occupation data as reported in the source."

@@ -1,0 +1,48 @@
+# This file contains the schema definition for the staging model of territories data.
+# It is used to define the structure, descriptions, and tests for the columns in the staging model.
+
+
+version: 2
+
+models:
+  - name: stg_territories
+    description: "Staging table capturing raw territory data ingested from source systems for initial validation and data quality checks."
+    columns:
+      - name: _AIRBYTE_RAW_ID
+        description: "Unique identifier for each raw territory record ingested by Airbyte."
+        tests:
+          - not_null:
+              severity: warn
+          - unique:
+              severity: warn
+      - name: _AIRBYTE_EXTRACTED_AT
+        description: "Timestamp when the territory data was extracted from the source system."
+        tests:
+          - not_null:
+              severity: warn
+      - name: _AIRBYTE_META
+        description: "Metadata JSON containing information about the Airbyte ingestion process."
+      - name: _AIRBYTE_GENERATION_ID
+        description: "Batch or generation identifier for the Airbyte ingestion run."
+      - name: TERRITORY_KEY
+        description: "Business key uniquely identifying the territory from the source."
+        tests:
+          - not_null:
+              severity: warn
+          - unique:
+              severity: warn
+      - name: CONTINENT
+        description: "Continent name associated with the territory."
+        tests:
+          - not_null:
+              severity: warn
+      - name: REGION
+        description: "Region name within the continent associated with the territory."
+        tests:
+          - not_null:
+              severity: warn
+      - name: COUNTRY
+        description: "Country name associated with the territory."
+        tests:
+          - not_null:
+              severity: warn

@@ -1,0 +1,99 @@
+sources:
+  - name: epsion_raw
+    database: epsion_db
+    tables:
+      - name: customers
+        columns:
+          - name: _airbyte_raw_id
+          - name: _airbyte_extracted_at
+          - name: _airbyte_meta
+          - name: _airbyte_generation_id
+          - name: gender
+          - name: prefix
+          - name: lastname
+          - name: birthdate
+          - name: firstname
+          - name: homeowner
+          - name: occupation
+          - name: customerkey
+          - name: annualincome
+          - name: emailaddress
+          - name: maritalstatus
+          - name: totalchildren
+          - name: educationlevel
+
+      - name: product_categories
+        columns:
+          - name: _airbyte_raw_id
+          - name: _airbyte_extracted_at
+          - name: _airbyte_meta
+          - name: _airbyte_generation_id
+          - name: categoryname
+          - name: productcategorykey
+
+      - name: product_subcategories
+        columns:
+          - name: _airbyte_raw_id
+          - name: _airbyte_extracted_at
+          - name: _airbyte_meta
+          - name: _airbyte_generation_id
+          - name: subcategoryname
+          - name: productcategorykey
+          - name: productsubcategorykey
+
+      - name: products
+        columns:
+          - name: _airbyte_raw_id
+          - name: _airbyte_extracted_at
+          - name: _airbyte_meta
+          - name: _airbyte_generation_id
+          - name: modelname
+          - name: productkey
+          - name: productsku
+          - name: productcost
+          - name: productname
+          - name: productsize
+          - name: productcolor
+          - name: productprice
+          - name: productstyle
+          - name: productdescription
+          - name: productsubcategorykey
+
+      - name: returns
+        columns:
+          - name: _airbyte_raw_id
+          - name: _airbyte_extracted_at
+          - name: _airbyte_meta
+          - name: _airbyte_generation_id
+          - name: productkey
+          - name: returndate
+          - name: territorykey
+          - name: returnquantity
+
+      - name: sales
+        columns:
+          - name: _airbyte_raw_id
+          - name: _airbyte_extracted_at
+          - name: _airbyte_meta
+          - name: _airbyte_generation_id
+          - name: orderdate
+          - name: stockdate
+          - name: productkey
+          - name: customerkey
+          - name: ordernumber
+          - name: territorykey
+          - name: orderlineitem
+          - name: orderquantity
+          - name: productsubcategorykey
+          - name: productcategorykey
+
+      - name: territory
+        columns:
+          - name: _airbyte_raw_id
+          - name: _airbyte_extracted_at
+          - name: _airbyte_meta
+          - name: _airbyte_generation_id
+          - name: region
+          - name: country
+          - name: continent
+          - name: salesterritorykey

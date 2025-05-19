@@ -1,0 +1,350 @@
+[0m11:43:02.586623 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019FC785C100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019FCA4DD1E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019FCA4DE0B0>]}
+
+
+============================== 11:43:02.595699 | c6255129-812b-46d7-9b21-5116e446088e ==============================
+[0m11:43:02.595699 [info ] [MainThread]: Running with dbt=1.7.19
+[0m11:43:02.597347 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\abdel\\.dbt', 'version_check': 'True', 'warn_error': 'None', 'log_path': 'logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt init', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:43:09.670688 [error] [MainThread]: Encountered an error:
+
+[0m11:43:09.672684 [error] [MainThread]: Traceback (most recent call last):
+  File "D:\epsion_project\venv\lib\site-packages\dbt\cli\requires.py", line 91, in wrapper
+    result, success = func(*args, **kwargs)
+  File "D:\epsion_project\venv\lib\site-packages\dbt\cli\requires.py", line 76, in wrapper
+    return func(*args, **kwargs)
+  File "D:\epsion_project\venv\lib\site-packages\dbt\cli\main.py", line 516, in init
+    results = task.run()
+  File "D:\epsion_project\venv\lib\site-packages\dbt\task\init.py", line 322, in run
+    project_name = self.get_valid_project_name()
+  File "D:\epsion_project\venv\lib\site-packages\dbt\task\init.py", line 276, in get_valid_project_name
+    name = click.prompt("Enter a name for your project (letters, digits, underscore)")
+  File "D:\epsion_project\venv\lib\site-packages\click\termui.py", line 164, in prompt
+    value = prompt_func(prompt)
+  File "D:\epsion_project\venv\lib\site-packages\click\termui.py", line 147, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m11:43:09.675680 [debug] [MainThread]: Command `dbt init` failed at 11:43:09.675680 after 7.20 seconds
+[0m11:43:09.675680 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019FC785C100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019FCA53B340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019FCA53B3D0>]}
+[0m11:43:09.676683 [debug] [MainThread]: Flushing usage events
+[0m11:43:57.863069 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002C46702B5B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002C46675DE40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002C469C9ABF0>]}
+
+
+============================== 11:43:57.868033 | ab2e03ee-9c14-4951-8389-4ef0456807b0 ==============================
+[0m11:43:57.868033 [info ] [MainThread]: Running with dbt=1.7.19
+[0m11:43:57.869035 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\abdel\\.dbt', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt init', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:46:12.371630 [error] [MainThread]: Encountered an error:
+
+[0m11:46:12.376651 [error] [MainThread]: Traceback (most recent call last):
+  File "D:\epsion_project\venv\lib\site-packages\dbt\cli\requires.py", line 91, in wrapper
+    result, success = func(*args, **kwargs)
+  File "D:\epsion_project\venv\lib\site-packages\dbt\cli\requires.py", line 76, in wrapper
+    return func(*args, **kwargs)
+  File "D:\epsion_project\venv\lib\site-packages\dbt\cli\main.py", line 516, in init
+    results = task.run()
+  File "D:\epsion_project\venv\lib\site-packages\dbt\task\init.py", line 322, in run
+    project_name = self.get_valid_project_name()
+  File "D:\epsion_project\venv\lib\site-packages\dbt\task\init.py", line 276, in get_valid_project_name
+    name = click.prompt("Enter a name for your project (letters, digits, underscore)")
+  File "D:\epsion_project\venv\lib\site-packages\click\termui.py", line 164, in prompt
+    value = prompt_func(prompt)
+  File "D:\epsion_project\venv\lib\site-packages\click\termui.py", line 147, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m11:46:12.382861 [debug] [MainThread]: Command `dbt init` failed at 11:46:12.381658 after 134.61 seconds
+[0m11:46:12.384858 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002C46702B5B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002C469CFB310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002C469CFB3A0>]}
+[0m11:46:12.385842 [debug] [MainThread]: Flushing usage events
+[0m11:47:34.467210 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024205DDC100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024208A59330>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024208A58C10>]}
+
+
+============================== 11:47:34.472206 | afa2749e-7277-48aa-888f-6e0173ef2579 ==============================
+[0m11:47:34.472206 [info ] [MainThread]: Running with dbt=1.7.19
+[0m11:47:34.472206 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\abdel\\.dbt', 'fail_fast': 'False', 'version_check': 'True', 'log_path': 'logs', 'warn_error': 'None', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt init epsion_analytics', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m11:47:34.472206 [debug] [MainThread]: Starter project path: D:\epsion_project\venv\lib\site-packages\dbt\include\starter_project
+[0m11:47:34.549924 [info ] [MainThread]: 
+Your new dbt project "epsion_analytics" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m11:47:34.551044 [info ] [MainThread]: Setting up your profile.
+[0m11:49:01.884141 [info ] [MainThread]: Profile epsion_analytics written to C:\Users\abdel\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m11:49:01.886973 [debug] [MainThread]: Command `dbt init` succeeded at 11:49:01.886973 after 87.50 seconds
+[0m11:49:01.888520 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024205DDC100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024208A587F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000024208A5BA60>]}
+[0m11:49:01.889525 [debug] [MainThread]: Flushing usage events
+[0m11:49:46.455551 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029A1B7CDAB0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029A1E44AA10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029A1E44B220>]}
+
+
+============================== 11:49:46.460549 | 69cbc0c4-1204-4752-826e-7f38f6f25da6 ==============================
+[0m11:49:46.460549 [info ] [MainThread]: Running with dbt=1.7.19
+[0m11:49:46.460549 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\abdel\\.dbt', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': 'logs', 'debug': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt debug', 'static_parser': 'True', 'introspect': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m11:49:46.465549 [info ] [MainThread]: dbt version: 1.7.19
+[0m11:49:46.465549 [info ] [MainThread]: python version: 3.10.0
+[0m11:49:46.465549 [info ] [MainThread]: python path: D:\epsion_project\venv\Scripts\python.exe
+[0m11:49:46.465549 [info ] [MainThread]: os info: Windows-10-10.0.19045-SP0
+[0m11:49:46.475552 [info ] [MainThread]: Error importing adapter: No module named 'dbt.adapters.bigquery'
+[0m11:49:47.145285 [info ] [MainThread]: Using profiles dir at C:\Users\abdel\.dbt
+[0m11:49:47.145285 [info ] [MainThread]: Using profiles.yml file at C:\Users\abdel\.dbt\profiles.yml
+[0m11:49:47.149771 [info ] [MainThread]: Using dbt_project.yml file at D:\epsion_project\dbt_project.yml
+[0m11:49:47.150322 [info ] [MainThread]: Configuration:
+[0m11:49:47.150322 [info ] [MainThread]:   profiles.yml file [[31mERROR invalid[0m]
+[0m11:49:47.150322 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m11:49:47.150322 [info ] [MainThread]: Required dependencies:
+[0m11:49:47.150322 [debug] [MainThread]: Executing "git --help"
+[0m11:49:47.209567 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m11:49:47.209567 [debug] [MainThread]: STDERR: "b''"
+[0m11:49:47.209567 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m11:49:47.209567 [info ] [MainThread]: Connection test skipped since no profile was found
+[0m11:49:47.209567 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m11:49:47.214010 [info ] [MainThread]: Could not load dbt_project.yml
+Profile loading failed for the following reason:
+Runtime Error
+  Credentials in profile "dbt_analytics", target "dev" invalid: Runtime Error
+    Could not find adapter type bigquery!
+
+
+[0m11:49:47.215130 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <D:\epsion_project\dbt_project.yml> not found
+
+[0m11:49:47.215130 [debug] [MainThread]: Command `dbt debug` failed at 11:49:47.215130 after 0.87 seconds
+[0m11:49:47.218734 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029A1B7CDAB0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029A1DCC6050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000029A1E449090>]}
+[0m11:49:47.219734 [debug] [MainThread]: Flushing usage events
+[0m11:54:25.373486 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FB6C50F580>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FB6F189330>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FB6F188C10>]}
+
+
+============================== 11:54:25.378705 | b695c5ad-3129-406b-9f06-918419615ade ==============================
+[0m11:54:25.378705 [info ] [MainThread]: Running with dbt=1.7.19
+[0m11:54:25.378705 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\abdel\\.dbt', 'version_check': 'True', 'debug': 'False', 'log_path': 'logs', 'warn_error': 'None', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt debug', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:54:25.378705 [info ] [MainThread]: dbt version: 1.7.19
+[0m11:54:25.378705 [info ] [MainThread]: python version: 3.10.0
+[0m11:54:25.382733 [info ] [MainThread]: python path: D:\epsion_project\venv\Scripts\python.exe
+[0m11:54:25.383593 [info ] [MainThread]: os info: Windows-10-10.0.19045-SP0
+[0m11:54:26.028405 [info ] [MainThread]: Using profiles dir at C:\Users\abdel\.dbt
+[0m11:54:26.028405 [info ] [MainThread]: Using profiles.yml file at C:\Users\abdel\.dbt\profiles.yml
+[0m11:54:26.028405 [info ] [MainThread]: Using dbt_project.yml file at D:\epsion_project\dbt_project.yml
+[0m11:54:26.033843 [info ] [MainThread]: adapter type: snowflake
+[0m11:54:26.033843 [info ] [MainThread]: adapter version: 1.7.1
+[0m11:54:26.033843 [info ] [MainThread]: Configuration:
+[0m11:54:26.033843 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m11:54:26.039593 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m11:54:26.039593 [info ] [MainThread]: Required dependencies:
+[0m11:54:26.040591 [debug] [MainThread]: Executing "git --help"
+[0m11:54:26.083757 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m11:54:26.083757 [debug] [MainThread]: STDERR: "b''"
+[0m11:54:26.083757 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m11:54:26.088760 [info ] [MainThread]: Connection:
+[0m11:54:26.088760 [info ] [MainThread]:   account: https://gtkyhtt-yh42174.snowflakecomputing.com
+[0m11:54:26.088760 [info ] [MainThread]:   user: airbyte
+[0m11:54:26.088760 [info ] [MainThread]:   database: epsion_db
+[0m11:54:26.088760 [info ] [MainThread]:   warehouse: epsion_dw
+[0m11:54:26.093760 [info ] [MainThread]:   role: AIRBYTE_ROLE
+[0m11:54:26.095631 [info ] [MainThread]:   schema: epsion_raw
+[0m11:54:26.096636 [info ] [MainThread]:   authenticator: None
+[0m11:54:26.098629 [info ] [MainThread]:   private_key_path: None
+[0m11:54:26.099639 [info ] [MainThread]:   token: None
+[0m11:54:26.101633 [info ] [MainThread]:   oauth_client_id: None
+[0m11:54:26.104755 [info ] [MainThread]:   query_tag: None
+[0m11:54:26.106684 [info ] [MainThread]:   client_session_keep_alive: False
+[0m11:54:26.107550 [info ] [MainThread]:   host: None
+[0m11:54:26.108554 [info ] [MainThread]:   port: None
+[0m11:54:26.109549 [info ] [MainThread]:   proxy_host: None
+[0m11:54:26.109549 [info ] [MainThread]:   proxy_port: None
+[0m11:54:26.111212 [info ] [MainThread]:   protocol: None
+[0m11:54:26.112213 [info ] [MainThread]:   connect_retries: 1
+[0m11:54:26.114216 [info ] [MainThread]:   connect_timeout: None
+[0m11:54:26.115701 [info ] [MainThread]:   retry_on_database_errors: False
+[0m11:54:26.116711 [info ] [MainThread]:   retry_all: False
+[0m11:54:26.117746 [info ] [MainThread]:   insecure_mode: False
+[0m11:54:26.118705 [info ] [MainThread]:   reuse_connections: None
+[0m11:54:26.119489 [info ] [MainThread]: Registered adapter: snowflake=1.7.1
+[0m11:54:26.119489 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m11:54:26.123406 [debug] [MainThread]: Using snowflake connection "debug"
+[0m11:54:26.124433 [debug] [MainThread]: On debug: select 1 as id
+[0m11:54:26.124504 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:55:04.356627 [debug] [MainThread]: Snowflake adapter: Error running SQL: select 1 as id
+[0m11:55:04.358639 [debug] [MainThread]: Snowflake adapter: Rolling back transaction.
+[0m11:55:04.359345 [debug] [MainThread]: On debug: No close available on handle
+[0m11:55:04.362452 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m11:55:04.364381 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m11:55:04.364381 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <D:\epsion_project\dbt_project.yml> not found
+
+[0m11:55:04.369351 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  250001: Could not connect to Snowflake backend after 2 attempt(s).Aborting
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m11:55:04.376401 [debug] [MainThread]: Command `dbt debug` failed at 11:55:04.375403 after 39.13 seconds
+[0m11:55:04.377441 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m11:55:04.379441 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FB6C50F580>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FB6FC43520>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001FB6FC40EE0>]}
+[0m11:55:04.381423 [debug] [MainThread]: Flushing usage events
+[0m11:55:17.592888 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002009166C100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000200942E9660>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000200942EA0B0>]}
+
+
+============================== 11:55:17.599189 | a87fbd06-1991-468c-9665-83abded490e2 ==============================
+[0m11:55:17.599189 [info ] [MainThread]: Running with dbt=1.7.19
+[0m11:55:17.605629 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'profiles_dir': 'C:\\Users\\abdel\\.dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'invocation_command': 'dbt debug', 'send_anonymous_usage_stats': 'True'}
+[0m11:55:17.606452 [info ] [MainThread]: dbt version: 1.7.19
+[0m11:55:17.606452 [info ] [MainThread]: python version: 3.10.0
+[0m11:55:17.606452 [info ] [MainThread]: python path: D:\epsion_project\venv\Scripts\python.exe
+[0m11:55:17.606452 [info ] [MainThread]: os info: Windows-10-10.0.19045-SP0
+[0m11:55:18.223328 [info ] [MainThread]: Using profiles dir at C:\Users\abdel\.dbt
+[0m11:55:18.224358 [info ] [MainThread]: Using profiles.yml file at C:\Users\abdel\.dbt\profiles.yml
+[0m11:55:18.224358 [info ] [MainThread]: Using dbt_project.yml file at D:\epsion_project\dbt_project.yml
+[0m11:55:18.224358 [info ] [MainThread]: adapter type: snowflake
+[0m11:55:18.224358 [info ] [MainThread]: adapter version: 1.7.1
+[0m11:55:18.224358 [info ] [MainThread]: Configuration:
+[0m11:55:18.224358 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m11:55:18.229063 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m11:55:18.229063 [info ] [MainThread]: Required dependencies:
+[0m11:55:18.229063 [debug] [MainThread]: Executing "git --help"
+[0m11:55:18.292880 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m11:55:18.293829 [debug] [MainThread]: STDERR: "b''"
+[0m11:55:18.293829 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m11:55:18.293829 [info ] [MainThread]: Connection:
+[0m11:55:18.293829 [info ] [MainThread]:   account: https://gtkyhtt-yh42174.snowflakecomputing.com
+[0m11:55:18.293829 [info ] [MainThread]:   user: airbyte
+[0m11:55:18.293829 [info ] [MainThread]:   database: epsion_db
+[0m11:55:18.298832 [info ] [MainThread]:   warehouse: epsion_dw
+[0m11:55:18.298832 [info ] [MainThread]:   role: AIRBYTE_ROLE
+[0m11:55:18.298832 [info ] [MainThread]:   schema: epsion_raw
+[0m11:55:18.298832 [info ] [MainThread]:   authenticator: None
+[0m11:55:18.298832 [info ] [MainThread]:   private_key_path: None
+[0m11:55:18.298832 [info ] [MainThread]:   token: None
+[0m11:55:18.304575 [info ] [MainThread]:   oauth_client_id: None
+[0m11:55:18.305574 [info ] [MainThread]:   query_tag: None
+[0m11:55:18.307581 [info ] [MainThread]:   client_session_keep_alive: False
+[0m11:55:18.308574 [info ] [MainThread]:   host: None
+[0m11:55:18.309572 [info ] [MainThread]:   port: None
+[0m11:55:18.310615 [info ] [MainThread]:   proxy_host: None
+[0m11:55:18.312147 [info ] [MainThread]:   proxy_port: None
+[0m11:55:18.313164 [info ] [MainThread]:   protocol: None
+[0m11:55:18.314162 [info ] [MainThread]:   connect_retries: 1
+[0m11:55:18.316153 [info ] [MainThread]:   connect_timeout: None
+[0m11:55:18.317145 [info ] [MainThread]:   retry_on_database_errors: False
+[0m11:55:18.317428 [info ] [MainThread]:   retry_all: False
+[0m11:55:18.319910 [info ] [MainThread]:   insecure_mode: False
+[0m11:55:18.321915 [info ] [MainThread]:   reuse_connections: None
+[0m11:55:18.322916 [info ] [MainThread]: Registered adapter: snowflake=1.7.1
+[0m11:55:18.324911 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m11:55:18.325913 [debug] [MainThread]: Using snowflake connection "debug"
+[0m11:55:18.326910 [debug] [MainThread]: On debug: select 1 as id
+[0m11:55:18.327908 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:55:56.519144 [debug] [MainThread]: Snowflake adapter: Error running SQL: select 1 as id
+[0m11:55:56.523180 [debug] [MainThread]: Snowflake adapter: Rolling back transaction.
+[0m11:55:56.524704 [debug] [MainThread]: On debug: No close available on handle
+[0m11:55:56.524704 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m11:55:56.527231 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m11:55:56.527231 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <D:\epsion_project\dbt_project.yml> not found
+
+[0m11:55:56.534020 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  250001: Could not connect to Snowflake backend after 2 attempt(s).Aborting
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m11:55:56.538807 [debug] [MainThread]: Command `dbt debug` failed at 11:55:56.538807 after 39.06 seconds
+[0m11:55:56.540802 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m11:55:56.541802 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002009166C100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020094DA3E80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020094DA0760>]}
+[0m11:55:56.543802 [debug] [MainThread]: Flushing usage events
+[0m11:57:08.607750 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021428F7C100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002142BBF9660>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002142BBFA0B0>]}
+
+
+============================== 11:57:08.612798 | 1aa150e8-64c9-4184-a565-1d6e709c8b1b ==============================
+[0m11:57:08.612798 [info ] [MainThread]: Running with dbt=1.7.19
+[0m11:57:08.617764 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'profiles_dir': 'C:\\Users\\abdel\\.dbt', 'log_path': 'logs', 'fail_fast': 'False', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt debug', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m11:57:08.617764 [info ] [MainThread]: dbt version: 1.7.19
+[0m11:57:08.617764 [info ] [MainThread]: python version: 3.10.0
+[0m11:57:08.620742 [info ] [MainThread]: python path: D:\epsion_project\venv\Scripts\python.exe
+[0m11:57:08.620742 [info ] [MainThread]: os info: Windows-10-10.0.19045-SP0
+[0m11:57:09.198388 [info ] [MainThread]: Using profiles dir at C:\Users\abdel\.dbt
+[0m11:57:09.203395 [info ] [MainThread]: Using profiles.yml file at C:\Users\abdel\.dbt\profiles.yml
+[0m11:57:09.203395 [info ] [MainThread]: Using dbt_project.yml file at D:\epsion_project\dbt_project.yml
+[0m11:57:09.203395 [info ] [MainThread]: adapter type: snowflake
+[0m11:57:09.207584 [info ] [MainThread]: adapter version: 1.7.1
+[0m11:57:09.207584 [info ] [MainThread]: Configuration:
+[0m11:57:09.207584 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m11:57:09.210496 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m11:57:09.211497 [info ] [MainThread]: Required dependencies:
+[0m11:57:09.211497 [debug] [MainThread]: Executing "git --help"
+[0m11:57:09.253467 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Reset current HEAD to the specified state\n   switch     Switch branches\n   tag        Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m11:57:09.253467 [debug] [MainThread]: STDERR: "b''"
+[0m11:57:09.257037 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m11:57:09.257690 [info ] [MainThread]: Connection:
+[0m11:57:09.257690 [info ] [MainThread]:   account: https://gtkyhtt-yh42174.snowflakecomputing.com
+[0m11:57:09.257690 [info ] [MainThread]:   user: airbyte
+[0m11:57:09.257690 [info ] [MainThread]:   database: EPSION_DB
+[0m11:57:09.257690 [info ] [MainThread]:   warehouse: EPSION_DW
+[0m11:57:09.262730 [info ] [MainThread]:   role: AIRBYTE_ROLE
+[0m11:57:09.263939 [info ] [MainThread]:   schema: EPSION_RAW
+[0m11:57:09.264692 [info ] [MainThread]:   authenticator: None
+[0m11:57:09.265463 [info ] [MainThread]:   private_key_path: None
+[0m11:57:09.266475 [info ] [MainThread]:   token: None
+[0m11:57:09.266475 [info ] [MainThread]:   oauth_client_id: None
+[0m11:57:09.267475 [info ] [MainThread]:   query_tag: None
+[0m11:57:09.268475 [info ] [MainThread]:   client_session_keep_alive: False
+[0m11:57:09.269512 [info ] [MainThread]:   host: None
+[0m11:57:09.270479 [info ] [MainThread]:   port: None
+[0m11:57:09.270479 [info ] [MainThread]:   proxy_host: None
+[0m11:57:09.271478 [info ] [MainThread]:   proxy_port: None
+[0m11:57:09.272513 [info ] [MainThread]:   protocol: None
+[0m11:57:09.273477 [info ] [MainThread]:   connect_retries: 1
+[0m11:57:09.274478 [info ] [MainThread]:   connect_timeout: None
+[0m11:57:09.274478 [info ] [MainThread]:   retry_on_database_errors: False
+[0m11:57:09.276479 [info ] [MainThread]:   retry_all: False
+[0m11:57:09.276479 [info ] [MainThread]:   insecure_mode: False
+[0m11:57:09.277478 [info ] [MainThread]:   reuse_connections: None
+[0m11:57:09.279468 [info ] [MainThread]: Registered adapter: snowflake=1.7.1
+[0m11:57:09.281402 [debug] [MainThread]: Acquiring new snowflake connection 'debug'
+[0m11:57:09.282126 [debug] [MainThread]: Using snowflake connection "debug"
+[0m11:57:09.283129 [debug] [MainThread]: On debug: select 1 as id
+[0m11:57:09.283129 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:57:47.521959 [debug] [MainThread]: Snowflake adapter: Error running SQL: select 1 as id
+[0m11:57:47.521959 [debug] [MainThread]: Snowflake adapter: Rolling back transaction.
+[0m11:57:47.521959 [debug] [MainThread]: On debug: No close available on handle
+[0m11:57:47.521959 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m11:57:47.521959 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m11:57:47.521959 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <D:\epsion_project\dbt_project.yml> not found
+
+[0m11:57:47.526963 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  250001: Could not connect to Snowflake backend after 2 attempt(s).Aborting
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m11:57:47.526963 [debug] [MainThread]: Command `dbt debug` failed at 11:57:47.526963 after 39.03 seconds
+[0m11:57:47.526963 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m11:57:47.526963 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000021428F7C100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002142C6B3E80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002142C6B0760>]}
+[0m11:57:47.526963 [debug] [MainThread]: Flushing usage events

@@ -1,0 +1,34 @@
+# This file contains the schema definition for the staging model of product_categories data.
+# It is used to define the structure, descriptions, and tests for the columns in the staging model.
+
+version: 2
+
+models:
+  - name: stg_product_categories
+    description: "Staging layer table capturing raw product category data ingested from source. Used for initial data validation and normalization before downstream transformations."
+    columns:
+      - name: _AIRBYTE_RAW_ID
+        description: "Unique identifier for the raw record as extracted by Airbyte. Used to track the ingestion record uniquely."
+        tests:
+          - not_null
+          - unique
+      - name: _AIRBYTE_EXTRACTED_AT
+        description: "Timestamp indicating when the data was extracted from the source system by Airbyte."
+        tests:
+          - not_null
+      - name: _AIRBYTE_META
+        description: "Metadata JSON blob capturing additional info from the Airbyte ingestion process."
+      - name: _AIRBYTE_GENERATION_ID
+        description: "Identifier representing the batch or generation ID of the Airbyte ingestion run."
+      - name: CATEGORY_KEY
+        description: "Primary business key for the product category, directly sourced from upstream system."
+        tests:
+          - not_null: 
+              severity: warn
+          - unique:
+              severity: warn
+      
+      - name: CATEGORY_NAME
+        description: "Raw name of the product category as received from the source system."
+        tests:
+          - not_null

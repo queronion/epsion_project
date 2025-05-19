@@ -1,0 +1,45 @@
+# This file contains the schema definition for the staging model of returns data.
+# It is used to define the structure, descriptions, and tests for the columns in the staging model.
+
+version: 2
+
+models:
+  - name: stg_returns
+    description: "Staging table capturing raw product return data extracted from source systems. Used for initial data validation and preparing for downstream transformations."
+    columns:
+      - name: _AIRBYTE_RAW_ID
+        description: "Unique identifier for each raw return record ingested by Airbyte."
+        tests:
+          - not_null:
+              severity: warn
+          - unique:
+              severity: warn
+      - name: _AIRBYTE_EXTRACTED_AT
+        description: "Timestamp indicating when the return data was extracted from the source system."
+        tests:
+          - not_null:
+              severity: warn
+      - name: _AIRBYTE_META
+        description: "Metadata JSON containing additional information about the Airbyte ingestion process."
+      - name: _AIRBYTE_GENERATION_ID
+        description: "Identifier for the batch or generation of the Airbyte ingestion run."
+      - name: RETURN_DATE
+        description: "Date when the product return occurred, as reported by the source system."
+        tests:
+          - not_null:
+              severity: warn
+      - name: TERRITORY_KEY
+        description: "Business key identifying the sales territory associated with the return."
+        tests:
+          - not_null:
+              severity: warn
+      - name: PRODUCT_KEY
+        description: "Business key referencing the product being returned."
+        tests:
+          - not_null:
+              severity: warn
+      - name: RETURN_QUANTITY
+        description: "Quantity of products returned in this record."
+        tests:
+          - not_null:
+              severity: warn

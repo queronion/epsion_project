@@ -1,0 +1,48 @@
+# This file contains the schema definition for the marts model of returns data.
+# It is used to define the structure, descriptions, and tests for the columns in the marts model.
+
+
+version: 2
+
+models:
+  - name: fct_returns
+    description: "Fact table capturing product returns, including return date, product, territory, and quantity."
+
+    columns:
+      - name: RETURN_DATE
+        description: "The date the product was returned. Foreign key to dim_dates."
+        tests:
+          - not_null
+          - relationships:    # Ensure the RETURN_DATE connects returns table to the dim_dates table
+              to: ref('dim_dates')
+              field: DATE
+          - dbt_expectations.expect_column_values_to_be_of_type: 
+              column_type: date
+              config:
+                severity: error # If the birth date is not in the correct format, it will be flagged as an error
+
+      - name: TERRITORY_KEY
+        description: "Foreign key to the dim_territories table indicating where the return occurred."
+        tests:
+          - not_null
+          - relationships:      # Ensure the TERRITORY_KEY connects returns table to  dim_territories table
+              to: ref('dim_territories')
+              field: TERRITORY_KEY
+
+      - name: PRODUCT_KEY
+        description: "Foreign key to the dim_products table identifying the returned product."
+        tests:
+          - not_null
+          - relationships:      # Ensure the PRODUCT_KEY connects returns table to the dim_products table
+              to: ref('dim_products') 
+              field: PRODUCT_KEY
+
+      - name: RETURN_QUANTITY
+        description: "The number of items returned for the specific product on the given date."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 1 # Ensure that the return quantity is not 0 or less
+              config:
+                severity: warn # If the return quantity is 0 or negative, it will be flagged as a warning
+

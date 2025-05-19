@@ -1,0 +1,65 @@
+# This file contains the schema definition for the staging model of sales data.
+# It is used to define the structure, descriptions, and tests for the columns in the staging model.
+
+version: 2
+
+models:
+  - name: stg_sales
+    description: "Staging table containing raw sales order data ingested from source systems. Used for initial validation and data quality checks before transformations."
+    columns:
+      - name: _AIRBYTE_RAW_ID
+        description: "Unique identifier for each raw sales record captured by Airbyte."
+        tests:
+          - not_null:
+              severity: warn
+          - unique:
+              severity: warn
+      - name: _AIRBYTE_EXTRACTED_AT
+        description: "Timestamp when the sales data was extracted from the source system."
+        tests:
+          - not_null:
+              severity: warn
+      - name: _AIRBYTE_META
+        description: "Metadata JSON related to the Airbyte ingestion process."
+      - name: _AIRBYTE_GENERATION_ID
+        description: "Batch or generation ID for the Airbyte ingestion run."
+      - name: ORDER_NUMBER
+        description: "Unique order number assigned to the sales transaction."
+        tests:
+          - not_null:
+              severity: warn
+      - name: ORDER_DATE
+        description: "Date when the order was placed."
+        tests:
+          - not_null:
+              severity: warn
+      - name: STOCK_DATE
+        description: "Date when the stock was recorded or updated."
+        tests:
+          - not_null:
+              severity: warn
+      - name: PRODUCT_KEY
+        description: "Business key referencing the product sold."
+        tests:
+          - not_null:
+              severity: warn
+      - name: CUSTOMER_KEY
+        description: "Business key identifying the customer who placed the order."
+        tests:
+          - not_null:
+              severity: warn
+      - name: TERRITORY_KEY
+        description: "Business key representing the sales territory associated with the order."
+        tests:
+          - not_null:
+              severity: warn
+      - name: ORDER_LINE_ITEM
+        description: "Line item number within the order."
+        tests:
+          - not_null:
+              severity: warn
+      - name: ORDER_QUANTITY
+        description: "Quantity of product ordered for the line item."
+        tests:
+          - not_null:
+              severity: warn

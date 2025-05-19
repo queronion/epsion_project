@@ -1,0 +1,63 @@
+version: 2
+
+models:
+  - name: fct_sales
+    description: "Fact table capturing each line item of a customer order, including dates, quantities, pricing, and profitability."
+
+    columns:
+      - name: ORDER_DATE
+        description: "Date the order was placed. Foreign key to dim_dates."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_dates')
+              field: DATE
+
+      - name: STOCK_DATE
+        description: "Date the product was stocked or shipped."
+        tests:
+          - not_null
+
+      - name: ORDER_NUMBER
+        description: "Unique identifier for the customer order."
+        tests:
+          - not_null
+
+      - name: PRODUCT_KEY
+        description: "Foreign key to dim_products identifying which product was sold."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_products')
+              field: PRODUCT_KEY
+
+      - name: CUSTOMER_KEY
+        description: "Foreign key to dim_buyers identifying who placed the order."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_buyers')
+              field: CUSTOMER_KEY
+
+      - name: TERRITORY_KEY
+        description: "Foreign key to dim_territories indicating where the order was shipped."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_territories')
+              field: TERRITORY_KEY
+
+      - name: ORDER_LINE_ITEM
+        description: "Line item number within the order (for multi‐item orders)."
+        tests:
+          - not_null
+
+      - name: ORDER_QUANTITY
+        description: "Number of units sold in this line item."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 1
+              config:
+                severity: error # Esure that minimum sold quantity is 1 not 0 or negatives 
+

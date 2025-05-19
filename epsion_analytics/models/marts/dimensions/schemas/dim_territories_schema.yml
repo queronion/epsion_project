@@ -1,0 +1,38 @@
+# This file contains the schema for the dim_territories model, which is a dimension table that contains geographic territories.
+# It includes attributes used for geographic categorization, such as territory key, continent, region, and country.
+# The model is built from the raw data in the territories table and includes additional transformations.
+# Some generic tests are applied to ensure data quality, such as not null and unique constraints.
+# The dim_territories model is used in various marts and reports to facilitate geographic analysis and reporting.
+
+version: 2
+
+models:
+  - name: dim_territories
+    description: "This dimension table defines the geographic territories where buyers, sellers, or transactions take place, organized by continent, region, and country."
+
+    columns:
+      - name: TERRITORY_KEY
+        description: "Primary key for the territory dimension table."
+        tests:
+          - not_null:
+              severity: error # If the territory key is null, it will be flagged as an error
+          - unique:
+              severity: error # If the territory key has duplicates, it will be flagged as an error
+
+      - name: CONTINENT
+        description: "The continent name, e.g., 'North America', 'Europe', or 'Pacific'."
+        tests:
+          - not_null:
+              severity: warn # If the continent name is null, it will be flagged as a warning
+
+      - name: REGION
+        description: "The regional grouping within the continent, e.g., 'Central' or 'Southeast'."
+        tests:
+          - not_null:
+              severity: warn # If the continent name is null, it will be flagged as a warning
+
+      - name: COUNTRY
+        description: "The country name, e.g., 'United States', 'Canada', 'Germany'."
+        tests:
+          - not_null:
+              severity: warn # If the continent name is null, it will be flagged as a warning

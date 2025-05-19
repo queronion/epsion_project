@@ -1,0 +1,6 @@
+{
+    "dbt.perspectiveTheme": "Vintage",
+    "dbt.enableNewLineagePanel": true,
+    "dbt.lineage.showNonSelectEdges": true,
+    "dbt.lineage.showSelectEdges": false
+}

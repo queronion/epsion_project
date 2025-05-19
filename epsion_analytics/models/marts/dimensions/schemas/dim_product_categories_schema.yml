@@ -1,0 +1,29 @@
+# This file contains the schema for the product_categories model, which is a dimension table that contains unique product categories.
+# It includes attributes used for product categorization, such as category key and category name.
+
+version: 2
+
+models:
+  - name: dim_product_categories
+    description: "This dimension table contains unique product categories, such as Bikes, and Accessories."
+
+    columns:
+      - name: CATEGORY_KEY
+        description: "Primary key for the product category; used to join with subcategories."
+        tests:
+          - not_null:
+              severity: error # If the column has nulls, it will be flagged as an error
+          - unique:
+              severity: error # If the column has duplicates, it will be flagged as an error
+          - relationships:   # Ensure that CATEGORY_KEY is a foreign key and connects the categories table to the subcategories table
+              to: ref('dim_subcategories')
+              field: CATEGORY_KEY
+
+      - name: CATEGORY_NAME
+        description: "The name of the product category, e.g., 'Bikes', 'Components', or 'Comics'."
+        tests:
+          - not_null:
+              severity: warn # If the column has nulls, it will be flagged as an error
+          - accepted_values:
+              values: ['Bikes', 'Components', 'Clothing', 'Accessories']
+              

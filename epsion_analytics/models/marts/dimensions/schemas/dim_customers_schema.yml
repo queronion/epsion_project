@@ -1,0 +1,101 @@
+version: 2
+
+# This file defines the schema for the dim_customers model in the dbt project.
+# It includes descriptions and tests for each column in the model.
+# The dim_customers model is a dimension table that contains enriched customer profile information
+# used for segmentation, personalization, and sales analysis.
+# The model is built from the raw data in the customers table and includes additional transformations
+# Some generic tests are applied to ensure data quality, such as not null and unique constraints.
+
+models:
+  - name: dim_customers
+    description: "Dimension table containing enriched customer profile information used for segmentation, personalization, and sales analysis."
+    columns:
+      - name: CUSTOMER_KEY
+        description: "Primary surrogate key for each customer in the dimension table."
+        tests:
+          - not_null:
+              severity: error # If the customer key is null, it will be flagged as an error
+          - unique:
+              severity: error # If the customer key is duplicated, it will be flagged as an error
+
+      - name: FULL_NAME
+        description: "Full name of the customer."
+        tests:
+          - not_null
+
+      - name: GENDER
+        description: "Gender identity of the customer."
+        tests:
+          - accepted_values:
+              values: ['Male', 'Female', 'Undefined']
+
+      - name: BIRTH_DATE
+        description: "Date of birth of the customer."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type: 
+              column_type: date
+              config:
+                severity: error # If the birth date is not in the correct format, it will be flagged as an error
+              
+
+      - name: AGE
+        description: "Calculated age of the customer in years, based on the current date and birth date."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: "{{ var('min_age', 20) }}" # Ensure that the age is above the minimum threshold
+              max_value: "{{ var('max_age', 70) }}" # Ensure that the age is below the maximum threshold
+              config:
+                severity: warn # If the age is outside this range, it will be flagged as a warning and considered as outliers 
+
+      - name: EMAIL_ADDRESS
+        description: "Email address of the customer used for communication and digital campaigns."
+        tests:
+          - not_null:
+              severity: warn # If the email address is null, it will be flagged as a warning
+          - unique:
+              severity: error # If the email address is duplicated, it will be flagged as an error
+          - dbt_expectations.expect_column_values_to_match_regex:
+              regex: '^.+@.+\..+$'  # ensure that email address is in a valid format 
+              config:
+                severity: error # If the email address does not match the regex, it will be flagged as an error
+
+      - name: ANNUAL_INCOME
+        description: "Estimated annual income of the customer in USD."
+        tests:
+          - not_null:
+              severity: error # If the annual income is null, it will be flagged as an error
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: numeric
+              config:
+                severity: error # If the annual income is not in the correct format, it will be flagged as an error
+
+      - name: MARITAL_STATUS
+        description: "Marital status of the customer."
+        tests:
+          - accepted_values:
+              values: ['Single', 'Married']
+
+      - name: TOTAL_CHILDREN
+        description: "Number of children the customer has."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0 # Ensure that the number of children is non-negative
+
+      - name: IS_HOMEOWNER
+        description: "Indicates whether the customer owns a home (Y) or not (N)."
+        tests:
+          - accepted_values:
+              values: ['Yes', 'No']
+
+      - name: EDUCATION_LEVEL
+        description: "Highest level of education attained by the customer."
+        tests:
+          - accepted_values:
+              values: ['High School', 'Partial High School', 'Partial College', 'Bachelor', 'Master', 'PHD' ]
+
+      - name: OCCUPATION
+        description: "Occupation or job title of the customer."

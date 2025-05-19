@@ -1,0 +1,81 @@
+# This file contains the schema for the dim_products model, which is a dimension table that contains detailed information about individual products.
+# It includes attributes such as product key, name, SKU, model name, size, color, style, description, subcategory key, price, and cost.
+# The model is built from the raw data in the products table and includes additional transformations.
+# Some generic tests are applied to ensure data quality, such as not null and unique constraints.
+# The model also includes specific tests for price and cost to ensure they are within acceptable ranges.
+# The model is used for product analysis, sales reporting
+
+version: 2
+
+models:
+  - name: dim_products
+    description: "This dimension table contains detailed information about individual products, including names, attributes, pricing, and their associated subcategories."
+
+    columns:
+      - name: PRODUCT_KEY
+        description: "Primary key for the product dimension table."
+        tests:
+          - not_null:
+              severity: error # If the column has nulls, it will be flagged as an error
+          - unique:
+              severity: error # If the column has duplicates, it will be flagged as an error
+
+      - name: PRODUCT_NAME
+        description: "The display name of the product, e.g., 	Sport-100 Helmet, Red, Mountain Bike Socks, M."
+        tests:
+          - not_null:
+              severity: warn # If the column has nulls, it will be flagged as a warning
+
+      - name: PRODUCT_SKU
+        description: "The Stock Keeping Unit (SKU) used to uniquely identify the product in inventory systems."
+        tests:
+          - not_null
+
+      - name: MODEL_NAME
+        description: "The model name or series the product belongs to, e.g., 	Cycling Cap, 	HL Road Frame ."
+        tests:
+          - not_null
+
+      - name: PRODUCT_SIZE
+        description: "The physical size of the product."
+
+      - name: PRODUCT_COLOR
+        description: "The color or edition tint of the product."
+
+      - name: PRODUCT_STYLE
+        description: "The style or print variation of the product."
+
+      - name: PRODUCT_DESCRIPTION
+        description: "A longer, marketing-friendly description of the product."
+
+      - name: SUBCATEGORY_KEY
+        description: "Foreign key referencing the subcategory this product belongs to."
+        tests:
+          - not_null
+          - relationships:   # Ensure that SUBCATEGORY_KEY is a foreign key and connects the products table to the subcategories table
+              to: ref('dim_subcategories')
+              field: SUBCATEGORY_KEY
+
+      - name: PRODUCT_PRICE
+        description: "The listed retail price of the product in USD."
+        tests:
+          - test_price_cost: 
+              test_column: PRODUCT_COST
+          - not_null:
+              severity: error # If the column has nulls, it will be flagged as an error
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value:  "{{ var('min_price', 2) }}" # Ensure that the price is above the minimum threshold
+              max_value:  "{{ var('max_price', 4000) }}" # Ensure that the price is below the maximum threshold
+              config:
+                severity: warn # If the price is outside this range, it will be flagged as a warning and considered as outliers
+              
+      - name: PRODUCT_COST
+        description: "The cost to produce or acquire the product, in USD."
+        tests:
+          - not_null:
+              severity: error # If the column has nulls, it will be flagged as an error
+          
+          # - dbt_expectations.expect_column_values_to_be_between:
+          #     min_value: 0
+          #     max_value: 100000
+
